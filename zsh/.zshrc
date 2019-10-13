@@ -9,6 +9,14 @@ COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
 
+# Set up theme
+## https://github.com/sindresorhus/pure
+autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL=$
+zstyle :prompt:pure:prompt:success color green
+prompt pure
+
+
 # Grab the .local conf, if it exists
 if [ -r $HOME/.zshrc.local ]; then
 	source $HOME/.zshrc.local
