@@ -48,6 +48,7 @@
 
     # Display the number of commits per author in numerical order
     who = shortlog -sn --
+	pub = push --set-upstream origin HEAD
 
 [color]
     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
@@ -63,7 +64,7 @@
     attributesfile = ~/.gitattributes
 
 [credential]
-    helper = osxkeychain
+	helper = osxkeychain
 
 [diff]
     tool = mvimdiff
@@ -81,4 +82,12 @@
     nice = "%C(yellow)%h%C(reset) %C(white)%s%C(cyan)%d%C(reset) -- %an; %ar"
 
 [push]
-    default = simple
+	default = current
+[user]
+	name = Eric Gideon
+	email = eric.gideon@redfin.com
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

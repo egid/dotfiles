@@ -67,3 +67,6 @@ status "${BREW_APP}"
 
 ## Install oh-my-zsh
 
+
+## Install vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
