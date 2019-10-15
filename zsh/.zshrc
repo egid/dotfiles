@@ -8,6 +8,7 @@ export LANG=en_US.UTF-8
 COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh_aliases.zsh
 
 # Set up theme
 ## https://github.com/sindresorhus/pure

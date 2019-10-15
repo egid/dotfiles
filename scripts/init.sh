@@ -52,7 +52,7 @@ if [[ $(which brew) == "" ]]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     success "Brew installed."
 fi
-​
+
 ## Install homebrew basics
 BREW_CLI="coreutils git git-lfs nginx openconnect python rsync stow tmux zsh wget mas"
 brew install ${BREW_CLI}
@@ -60,7 +60,7 @@ success "Command line tools installed using brew:"
 status "${BREW_CLI}"
 
 ## Install homebrew cask apps
-$BREW_APP="1password alfred bartender brave-browser dropbox firefox iterm2 slack sublime-merge sublime-text the-unarchiver tuntap visual-studio-code"
+BREW_APP="1password alfred bartender brave-browser dropbox firefox iterm2 slack sublime-merge sublime-text the-unarchiver tuntap visual-studio-code"
 brew cask install ${BREW_APP}
 success "Apps installed using brew cask:"
 status "${BREW_APP}"
