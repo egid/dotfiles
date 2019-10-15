@@ -1,0 +1,105 @@
+{
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "*.css": "less"
+    },
+    "files.exclude": {
+        "**/node_modules/**": true,
+        "**/javascript/includes/js/**": true,
+        "**/resources/images/text/**": true
+    },
+    "search.exclude": {
+        "**/node_modules/**": true,
+        "**/javascript/includes/js/**": true,
+        "**/resources/images/text/**": true
+    },
+
+    // editor / ui
+    "editor.fontSize": 18,
+    "editor.fontFamily": "FiraCode-Light",
+    "editor.formatOnPaste": true,
+    "editor.minimap.showSlider": "always",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "atomKeymap.promptV3Features": true,
+    "emmet.showExpandedAbbreviation": "never",
+    "markdownlint.config": {
+        "blanks-around-lists": false,
+        "ul-indent": { "indent": 4 },
+        "line_length": false,
+        "no-multiple-blanks": false,
+        "no-blanks-blockquote": false,
+    },
+    "workbench.colorCustomizations": {
+        // "activityBarBadge.background": "#2979FF",
+        // "list.activeSelectionForeground": "#2979FF",
+        // "list.inactiveSelectionForeground": "#2979FF",
+        // "list.highlightForeground": "#2979FF",
+        // "scrollbarSlider.activeBackground": "#2979FF50",
+        // "editorSuggestWidget.highlightForeground": "#2979FF",
+        // "textLink.foreground": "#2979FF",
+        // "progressBar.background": "#2979FF",
+        // "pickerGroup.foreground": "#2979FF",
+        "tab.activeBorder": "#2979FF",
+        // "notificationLink.foreground": "#2979FF",
+        // "editorWidget.resizeBorder": "#2979FF",
+        // "editorWidget.border": "#2979FF",
+        // "settings.modifiedItemIndicator": "#2979FF",
+        // "settings.headerForeground": "#2979FF",
+        // "panelTitle.activeBorder": "#2979FF",
+        // "breadcrumb.activeSelectionForeground": "#2979FF",
+        // "menu.selectionForeground": "#2979FF",
+        // "menubar.selectionForeground": "#2979FF"
+    },
+    "workbench.sideBar.location": "left",
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 0,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "extensions.ignoreRecommendations": false,
+
+
+    // perf issues
+    "search.followSymlinks": false,
+    "zenMode.centerLayout": false,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "typescript.validate.enable": false,
+    "javascript.validate.enable": false,
+    "typescript.tsdk": null,
+    "typescript.tsc.autoDetect": "off",
+    "git.countBadge": "off",
+    "git.autorefresh": false,
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    // openhab
+    "openhab.host": "raspberrypi.local",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "cSpell.userWords": [
+        "ANTIPATTERN",
+        "FIGMA",
+        "Popen",
+        "eqeqeq",
+        "lastupdated",
+        "mkdir",
+        "rmtree",
+        "shutil",
+        "stylelint"
+    ],
+    "editor.fontLigatures": true,
+    "editor.matchBrackets": false,
+    "workbench.colorTheme": "Atom One Dark",
+    "html.format.endWithNewline": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "python.jediEnabled": false,
+    "git.pullTags": false,
+    "search.useGlobalIgnoreFiles": true,
+    "gitlens.blame.ignoreWhitespace": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true
+}

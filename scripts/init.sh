@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+STOW_DIR="$scriptdir/.."
 ## Colors, because readability
 
 rf=$(tput setaf 1)
@@ -45,6 +46,10 @@ confirm () {
 	esac
 }
 
+stowfor() {
+	stow -vv --dir=$STOW_DIR --target=$HOME $1
+}
+
 ## Startup
 status 'Starting installs...'
 
@@ -57,18 +62,53 @@ else
 	success 'Homebrew already installed.'
 fi
 
-
-## Stow + Homebrew
-cd $scriptdir/..
-stow homebrew
+stowfor homebrew
 status 'starting to install brew apps and casks'
 brew bundle --global
 success 'brew apps installed'
 
 ## Install oh-my-zsh
-
+# TODO
 
 ## Install vundle
 status 'checking out vundle (vim bundler)'
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 success 'vundle installed'
+
+## Visual Studio Code
+status 'Copying vscode settings...'
+stowfor vscode
+ln -s ~/.vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/.vscode-keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -s ~/.vscode-snippets/ ~/Library/Application\ Support/Code/User
+success 'Done.'
+status 'Installing vscode extensions...'
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension CoenraadS.bracket-pair-colorizer-2
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension drKnoxy.eslint-disable-snippets
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension dunstontc.viml
+code --install-extension eamodio.gitlens
+code --install-extension eg2.vscode-npm-script
+code --install-extension mechatroner.rainbow-csv
+code --install-extension ms-python.python
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode-remote.remote-ssh-explorer
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-vscode.atom-keybindings
+code --install-extension shinnn.stylelint
+code --install-extension smeagolem.ayu-one-dark-pro
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension travisthetechie.write-good-linter
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension wix.vscode-import-cost
+success 'Done.'
+
+
+success 'Setup standardized.'

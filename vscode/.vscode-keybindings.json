@@ -1,0 +1,24 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "shift+cmd+\\",
+        "command": "revealInExplorer"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.quickOpenNavigateNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "workbench.action.showAllEditors"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.showAllEditors"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    }
+]
