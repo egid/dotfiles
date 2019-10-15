@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ## Colors, because readability
 
 rf=$(tput setaf 1)
@@ -45,28 +45,30 @@ confirm () {
 	esac
 }
 
+## Startup
+status 'Starting installs...'
 
-## Install homebrew, if it's missing
+## Homebrew
 if [[ $(which brew) == "" ]]; then
-    status "Installing homebrew..."
+    status 'Installing homebrew...'
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    success "Brew installed."
+    success 'Homebrew installed.'
+else
+	success 'Homebrew already installed.'
 fi
 
-## Install homebrew basics
-BREW_CLI="coreutils git git-lfs nginx openconnect python rsync stow tmux zsh wget mas"
-brew install ${BREW_CLI}
-success "Command line tools installed using brew:" 
-status "${BREW_CLI}"
 
-## Install homebrew cask apps
-BREW_APP="1password alfred bartender brave-browser dropbox firefox iterm2 slack sublime-merge sublime-text the-unarchiver tuntap visual-studio-code"
-brew cask install ${BREW_APP}
-success "Apps installed using brew cask:"
-status "${BREW_APP}"
+## Stow + Homebrew
+cd $scriptdir/..
+stow homebrew
+status 'starting to install brew apps and casks'
+brew bundle --global
+success 'brew apps installed'
 
 ## Install oh-my-zsh
 
 
 ## Install vundle
+status 'checking out vundle (vim bundler)'
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+success 'vundle installed'
