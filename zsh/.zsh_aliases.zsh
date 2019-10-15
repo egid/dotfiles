@@ -1,6 +1,9 @@
 # ag
 alias ag='\ag --pager="less -RS"'
 
+# zsh
+alias tad="tmux attach -d"
+
 # Git
 alias g="git"
 alias gs="git status -s"
