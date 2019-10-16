@@ -5,7 +5,14 @@ set number
 set linebreak
 set wrap!
 
+"tmux compat
+autocmd VimEnter,VimLeave * silent !tmux set status
+
 set wildmenu
+
+set laststatus=2
+"set background=light " for the light version
+let g:lightline = { 'colorscheme': 'wombat' }
 
 set tabstop=4
 set softtabstop=0 noexpandtab
@@ -57,6 +64,7 @@ Plugin 'flrnprz/plastic.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'maxmellon/vim-jsx-pretty'
+"Plugin 'vim-airline/vim-airline'
 
 
 " All of your Plugins must be added before the following line
@@ -67,8 +75,6 @@ filetype plugin indent on    " required
 
 colorscheme one
 set background=dark " for the dark version
-"set background=light " for the light version
-let g:lightline = { 'colorscheme': 'one' }
 
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
