@@ -101,5 +101,6 @@
     "search.useGlobalIgnoreFiles": true,
     "gitlens.blame.ignoreWhitespace": true,
     "eslint.alwaysShowStatus": true,
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true,
+    "eslint.experimental.incrementalSync": true
 }
