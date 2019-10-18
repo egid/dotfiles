@@ -20,4 +20,4 @@ Thumbs.db
 *.vi
 
 # ignore git user credentials
-git/.gitconfig-user
+git/.gituser.inc

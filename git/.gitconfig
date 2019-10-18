@@ -90,7 +90,4 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [include]
-    path = /.gitconfig-user
-[user]
-	name = Eric Gideon
-	email = eric.gideon@redfin.com
+    path = ~/.gituser.inc

@@ -145,11 +145,9 @@ if [[ $gitname == "" || $gitemail == "" ]]; then
 		confirm && savegitsettings || promptgitsettings
 	}
 
-
 	savegitsettings() {
-		
-		echo "name=$gitname" >> ~/.git/.gitconfig-user
-		echo "email=$gitemail" >> ~/.git/.gitconfig-user
+		echo "name=$gitname" >> ~/.gitconfig-user
+		echo "email=$gitemail" >> ~/.gitconfig-user
 	}
 
 	promptgitsettings
