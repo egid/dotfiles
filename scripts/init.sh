@@ -114,4 +114,38 @@ success 'Done.'
 ## Stow
 stowfor git tmux vim zsh
 
+# Git
+
+## Let's see if you have global git stuff set up
+gitname=$(git config --global user.name)
+gitemail=$(git config --global user.email)
+
+## No? We can do this.
+if [[ $gitname == "" || $gitemail == "" ]]; then
+	status "Setting up Git credentials, since no global is configured."
+	log "What you provide here will be attached to all Git commits."
+
+	promptgitsettings() {
+		echo ""
+		echo "Type your full name and press [ENTER]:  (eg ${bluef}Jane Doe${reset})"
+		read gitname
+		echo ""
+
+		echo "Type your email and press [ENTER]:  (eg ${bluef}jane.doe@test.com${reset})"
+		read gitemail
+		echo ""
+		status "About to save ${bluef}$gitname${reset} (${bluef}$gitemail${reset}) to your .gitconfig..."
+		confirm && savegitsettings || promptgitsettings
+	}
+
+
+	savegitsettings() {
+		
+		echo "name=$gitname" >> ~/.git/.gitconfig-user
+		echo "email=$gitemail" >> ~/.git/.gitconfig-user
+	}
+
+	promptgitsettings
+fi
+
 success 'Setup standardized.'
