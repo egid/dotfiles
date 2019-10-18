@@ -111,5 +111,7 @@ code --install-extension vscode-icons-team.vscode-icons
 code --install-extension wix.vscode-import-cost
 success 'Done.'
 
+## Stow
+stowfor git tmux vim zsh
 
 success 'Setup standardized.'
