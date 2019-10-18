@@ -123,9 +123,9 @@ stowfor git tmux vim zsh
 
 # Git
 
-## Let's see if you have global git stuff set up
-gitname=$(git config --global user.name)
-gitemail=$(git config --global user.email)
+## Let's see if you have git set up
+gitname=$(git config user.name)
+gitemail=$(git config user.email)
 
 ## No? We can do this.
 if [[ $gitname == "" || $gitemail == "" ]]; then
@@ -146,8 +146,9 @@ if [[ $gitname == "" || $gitemail == "" ]]; then
 	}
 
 	savegitsettings() {
-		echo "name=$gitname" >> ~/.gituser.inc
-		echo "email=$gitemail" >> ~/.gituser.inc
+		echo "[user]"
+		echo "    name=$gitname" >> ~/.gituser.inc
+		echo "    email=$gitemail" >> ~/.gituser.inc
 	}
 
 	promptgitsettings
