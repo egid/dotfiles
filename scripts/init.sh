@@ -152,12 +152,13 @@ if [[ $gitname == "" || $gitemail == "" ]]; then
 		echo "Type your email and press [ENTER]:  (eg ${bluef}jane.doe@test.com${reset})"
 		read gitemail
 		echo ""
-		status "About to save ${bluef}$gitname${reset} (${bluef}$gitemail${reset}) to your .gitconfig..."
-		# confirm && savegitsettings || promptgitsettings
+		status "About to save ${bluef}$gitname${reset} (${bluef}$gitemail${reset}) to ~.gituser.inc ..."
+		confirm && savegitsettings || promptgitsettings
 	}
 
 	savegitsettings() {
-		echo "[user]"
+		touch ~/.gituser.inc
+		echo "[user]" >> ~/.gituser.inc
 		echo "    name=$gitname" >> ~/.gituser.inc
 		echo "    email=$gitemail" >> ~/.gituser.inc
 	}
