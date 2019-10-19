@@ -153,11 +153,12 @@ if [[ $gitname == "" || $gitemail == "" ]]; then
 		read gitemail
 		echo ""
 		status "About to save ${bluef}$gitname${reset} (${bluef}$gitemail${reset}) to your .gitconfig..."
-		# confirm && savegitsettings || promptgitsettings
+		confirm && savegitsettings || promptgitsettings
 	}
 
 	savegitsettings() {
-		echo "[user]"
+		touch ~/.gituser.inc
+		echo "[user]" >> ~/.gituser.inc
 		echo "    name=$gitname" >> ~/.gituser.inc
 		echo "    email=$gitemail" >> ~/.gituser.inc
 	}
