@@ -65,23 +65,32 @@ fi
 stowfor homebrew
 status 'starting to install brew apps and casks'
 brew bundle --global
-success 'brew apps installed'
+success 'brew apps installed.'
 
 ## Install oh-my-zsh
-status 'Installing oh-my-zsh'
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if [ ! -d ~/.oh-my-zsh/.git ]; then
+	status 'Installing oh-my-zsh...'
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+success 'oh-my-zsh installed.'
 
 ## Install pure prompt
 status 'Installing pure prompt'
 npm install --global pure-prompt
 
 # Install TPM
-$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d ~/.tmux/plugins/tpm/.git ]; then
+	status 'checking out tpm (tmux plugin manager)...'
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+success 'tpm installed.'
 
 ## Install vundle
-status 'checking out vundle (vim bundler)'
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-success 'vundle installed'
+if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then
+	status 'checking out vundle (vim bundler)...'
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+success 'vundle installed.'
 
 ## Visual Studio Code
 status 'Copying vscode settings...'
@@ -110,7 +119,7 @@ code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode.atom-keybindings
 code --install-extension shinnn.stylelint
-code --install-extension smeagolem.ayu-one-dark-pro
+code --install-extension akamud.vscode-theme-onedark
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension travisthetechie.write-good-linter
 code --install-extension VisualStudioExptTeam.vscodeintellicode
@@ -119,8 +128,9 @@ code --install-extension wix.vscode-import-cost
 success 'Done.'
 
 ## Stow
+status "Using Stow to set up git, tmux, vim, and zsh"
 stowfor git tmux vim zsh
-
+success 'Done.'
 # Git
 
 ## Let's see if you have git set up
@@ -128,8 +138,9 @@ gitname=$(git config user.name)
 gitemail=$(git config user.email)
 
 ## No? We can do this.
+status 'Checking git config...'
 if [[ $gitname == "" || $gitemail == "" ]]; then
-	status "Setting up Git credentials, since no global is configured."
+	status "Setting up git username + email in .gituser.inc"
 	log "What you provide here will be attached to all Git commits."
 
 	promptgitsettings() {
@@ -142,7 +153,7 @@ if [[ $gitname == "" || $gitemail == "" ]]; then
 		read gitemail
 		echo ""
 		status "About to save ${bluef}$gitname${reset} (${bluef}$gitemail${reset}) to your .gitconfig..."
-		confirm && savegitsettings || promptgitsettings
+		# confirm && savegitsettings || promptgitsettings
 	}
 
 	savegitsettings() {
@@ -153,5 +164,6 @@ if [[ $gitname == "" || $gitemail == "" ]]; then
 
 	promptgitsettings
 fi
+success 'Done.'
 
 success 'Setup standardized.'
