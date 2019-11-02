@@ -6,7 +6,7 @@ set linebreak
 set wrap!
 
 "tmux compat
-autocmd VimEnter,VimLeave * silent !tmux set status
+autocmd VimEnter,VimLeave * silent !tmux set status on
 
 set wildmenu
 
@@ -25,8 +25,8 @@ set path=$PWD/**
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set t_8b=^[[48;2;%lu;%lu;%lum
-set t_8f=^[[38;2;%lu;%lu;%lum
+"set t_8b=^[[48;2;%lu;%lu;%lum
+"set t_8f=^[[38;2;%lu;%lu;%lum
 
 let g:ctrlp_max_files=400000
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -64,7 +64,7 @@ Plugin 'rakr/vim-one'
 Plugin 'pangloss/vim-javascript'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'maxmellon/vim-jsx-pretty'
-
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
