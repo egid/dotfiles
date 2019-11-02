@@ -60,13 +60,11 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'rakr/vim-one'
-Plugin 'flrnprz/plastic.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'maxmellon/vim-jsx-pretty'
-"Plugin 'vim-airline/vim-airline'
-Bundle 'edkolev/tmuxline.vim'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'junegunn/goyo.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
