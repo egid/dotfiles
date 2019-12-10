@@ -10,6 +10,9 @@ COMPLETION_WAITING_DOTS="true"
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh_aliases.zsh
 
+# configs
+setopt correct
+
 # Set up theme
 ## https://github.com/sindresorhus/pure
 autoload -U promptinit; promptinit
